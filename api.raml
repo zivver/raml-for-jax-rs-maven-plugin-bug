@@ -1,0 +1,22 @@
+#%RAML 0.8
+title: Maven-plugin-bug
+version: 1
+protocols: [HTTPS]
+mediaType: application/json
+
+### Workaround for the bug is to add a reference to second.json in the schemas section of the RAML.
+### See the lines below:
+
+#schemas:
+#  - second.json: !include second.json
+
+/example_resource:
+  description: Example
+  get:
+    description: Get method
+    responses:
+      200:
+        description: HTTP OK status response
+        body:
+          application/json:
+            schema: !include first.json

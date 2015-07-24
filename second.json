@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://schemas.example.org/second.json",
+  "type": "object",
+  "title": "Second",
+  "properties": {
+    "hello": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.example</groupId>
+	<version>1.0-SNAPSHOT</version>
+	<artifactId>maven-plugin-bug</artifactId>
+	<packaging>jar</packaging>
+	<name>Bug with nested JSON schemas</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<raml-codegen.version>1.3.2</raml-codegen.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.raml.plugins</groupId>
+				<artifactId>raml-jaxrs-maven-plugin</artifactId>
+				<version>${raml-codegen.version}</version>
+				<configuration>
+					<sourcePaths>
+						<path>${basedir}/api.raml</path>
+					</sourcePaths>
+					<basePackageName>org.example</basePackageName>
+					<jaxrsVersion>2.0</jaxrsVersion>
+					<jsonMapper>jackson2</jsonMapper>
+					<removeOldOutput>true</removeOldOutput>
+					<sourceDirectory>${basedir}</sourceDirectory>
+					<useTitlePropertyForSchemaNames>true</useTitlePropertyForSchemaNames>
+				</configuration>
+				<executions>
+					<execution>
+						<id>server-api</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<phase>generate-sources</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

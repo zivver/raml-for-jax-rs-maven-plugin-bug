@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://schemas.example.org/first.json",
+  "type": "object",
+  "title": "First",
+  "properties": {
+    "second": {
+      "$ref": "second.json"
+    }
+  }
+}
